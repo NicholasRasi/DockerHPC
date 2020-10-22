@@ -14,3 +14,11 @@ Dockerfiles with OMPI and Infiniband
 - HPC-X v2.7.0
 - OpenMPI 4.0.4
 - mpiBench + OSU Micro Benchmarks
+
+
+#### v3
+
+- MLNX_OFED-4.6-1.0.1.1
+- HPC-X v2.4.1
+- OpenMPI 4.0.1
+- mpiBench + OSU Micro Benchmarks
