@@ -4,7 +4,7 @@ FROM centos:7.6.1810
 RUN yum install -y epel-release \
     && yum groupinstall -y "Development tools" \
     && yum install -y \
-        pciutils lsof ethtool \
+        libusbx pciutils-libs pciutils lsof ethtool fuse-libs \
         ca-certificates wget openssh-server openssh-clients net-tools \
         numactl-devel gtk2 atk cairo tcsh libnl3 tcl libmnl tk
 

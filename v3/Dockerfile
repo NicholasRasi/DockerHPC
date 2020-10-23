@@ -13,15 +13,15 @@ ENV INSTALL_PREFIX=/opt
 WORKDIR /tmp/mpi
 
 # download and install mlnx 
-RUN wget -q -O - http://www.mellanox.com/downloads/ofed/MLNX_OFED-4.6-1.0.1.1/MLNX_OFED_LINUX-4.6-1.0.1.1-rhel7.6-x86_64.tgz | tar -xzf - \
-    && ./MLNX_OFED_LINUX-4.6-1.0.1.1-rhel7.6-x86_64/mlnxofedinstall --user-space-only --without-fw-update --all --force \
-    && rm -rf MLNX_OFED_LINUX-4.6-1.0.1.1-rhel7.6-x86_64
+RUN wget -q -O - http://content.mellanox.com/ofed/MLNX_OFED-4.5-1.0.1.0/MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz | tar -xzf - \
+    && ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --user-space-only --without-fw-update --all --force \
+    && rm -rf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64
 
 # download and install HPC-X
-ENV HPCX_VERSION="v2.4.1"
+ENV HPCX_VERSION="v2.4.1.0"
 RUN cd ${INSTALL_PREFIX} && \
-    wget -q -O - ftp://bgate.mellanox.com/uploads/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-4.6-1.0.1.1-redhat7.6-x86_64.tbz | tar -xjf - \
-    && HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-4.6-1.0.1.1-redhat7.6-x86_64 \
+    wget -q -O - http://content.mellanox.com/hpc/hpc-x/v2.4.1/hpcx-v2.4.1.0-gcc-MLNX_OFED_LINUX-4.5-1.0.1.0-redhat7.6-x86_64.tbz | tar -xjf - \
+    && HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-4.5-1.0.1.0-redhat7.6-x86_64 \
     && HCOLL_PATH=${HPCX_PATH}/hcoll \
     && UCX_PATH=${HPCX_PATH}/ucx
 
